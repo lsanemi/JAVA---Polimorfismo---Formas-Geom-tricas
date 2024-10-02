@@ -1,0 +1,73 @@
+
+abstract class Forma {
+    
+    public abstract double calcularArea();
+}
+
+
+class Circulo extends Forma {
+    private double raio;
+
+    
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+
+    
+    @Override
+    public double calcularArea() {
+        return Math.PI * raio * raio;
+    }
+}
+
+
+class Retangulo extends Forma {
+    private double largura;
+    private double altura;
+
+    
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    
+    @Override
+    public double calcularArea() {
+        return largura * altura;
+    }
+}
+
+
+class Triangulo extends Forma {
+    private double base;
+    private double altura;
+
+    
+    public Triangulo(double base, double altura) {
+        this.base = base;
+        this.altura = altura;
+    }
+
+    
+    @Override
+    public double calcularArea() {
+        return (base * altura) / 2;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+     
+        Forma[] formas = new Forma[3];
+
+        formas[0] = new Circulo(5.0);     // Circulo com raio 5
+        formas[1] = new Retangulo(4.0, 6.0); // Retangulo com largura 4 e altura 6
+        formas[2] = new Triangulo(3.0, 4.0); // Triangulo com base 3 e altura 4
+
+        for (Forma forma : formas) {
+            System.out.println("Área da forma: " + forma.calcularArea());
+        }
+    }
+}
